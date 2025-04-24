@@ -1,0 +1,67 @@
+<button
+  id="theme-toggle"
+  class="fixed top-4 right-4 p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+  aria-label="Toggle dark mode"
+>
+  <svg
+    id="theme-icon"
+    class="w-6 h-6 text-gray-800 dark:text-gray-200"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      id="theme-icon-path"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+    ></path>
+  </svg>
+</button>
+
+<script>
+  // Function to set theme
+  function setTheme(theme: "light" | "dark") {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      console.log("Theme set to: dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      console.log("Theme set to: light");
+    }
+  }
+
+  // Initialize theme - only use saved theme or default to light
+  const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+  setTheme(savedTheme || "light");
+
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon-path");
+
+  if (themeToggle && themeIcon) {
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      const newTheme = isDark ? "light" : "dark";
+      setTheme(newTheme);
+
+      // Update icon
+      if (isDark) {
+        themeIcon.setAttribute(
+          "d",
+          "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+        );
+      } else {
+        themeIcon.setAttribute(
+          "d",
+          "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+        );
+      }
+    });
+  } else {
+    console.error("Theme toggle elements not found!");
+  }
+</script>
