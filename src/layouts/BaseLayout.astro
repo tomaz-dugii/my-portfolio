@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+import MainHead from '../components/MainHead.astro';
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<html lang={lang}>
+  <head>
+    <MainHead
+      title="Tomaž Starašinič - Portfolio"
+      description="Portfolio of Tomaž Starašinič - Experienced Software Developer"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 relative"
+  >
+    <Navigation pageTitle="TS" />
+    <main class="pt-20">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

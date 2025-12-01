@@ -1,0 +1,144 @@
+---
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
+const currentLang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(currentLang);
+const currentFlag = currentLang === 'en' ? '🇬🇧' : '🇸🇮';
+const currentLabel = languages[currentLang as keyof typeof languages];
+---
+
+<language-switcher class="relative">
+  <button
+    class="flex items-center gap-2 px-3 py-1 rounded text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+    aria-expanded="false"
+    aria-haspopup="true"
+  >
+    <span>{currentFlag} {currentLabel}</span>
+    <svg
+      class="w-4 h-4 transition-transform"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <div
+    class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-600 z-50 opacity-0 invisible transition-all duration-200"
+    role="menu"
+  >
+    {
+      Object.entries(languages).map(([lang, label]) => (
+        <a
+          href={translatePath('/', lang)}
+          class={`flex items-center gap-3 px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors first:rounded-t-md last:rounded-b-md ${
+            currentLang === lang
+              ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
+              : 'text-gray-800 dark:text-gray-200'
+          }`}
+          role="menuitem"
+        >
+          <span class="text-lg">{lang === 'en' ? '🇬🇧' : '🇸🇮'}</span>
+          <span>{label}</span>
+          {currentLang === lang && (
+            <svg
+              class="w-4 h-4 ml-auto"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          )}
+        </a>
+      ))
+    }
+  </div>
+</language-switcher>
+
+<script>
+  class LanguageSwitcher extends HTMLElement {
+    constructor() {
+      super();
+
+      const button = this.querySelector('button')!;
+      const dropdown = this.querySelector('div[role="menu"]')! as HTMLElement;
+      const arrow = button.querySelector('svg')!;
+
+      let isOpen = false;
+
+      const toggleDropdown = () => {
+        isOpen = !isOpen;
+
+        if (isOpen) {
+          dropdown.classList.remove('opacity-0', 'invisible');
+          dropdown.classList.add('opacity-100', 'visible');
+          button.setAttribute('aria-expanded', 'true');
+          arrow.style.transform = 'rotate(180deg)';
+        } else {
+          dropdown.classList.add('opacity-0', 'invisible');
+          dropdown.classList.remove('opacity-100', 'visible');
+          button.setAttribute('aria-expanded', 'false');
+          arrow.style.transform = 'rotate(0deg)';
+        }
+      };
+
+      const closeDropdown = () => {
+        if (isOpen) {
+          isOpen = false;
+          dropdown.classList.add('opacity-0', 'invisible');
+          dropdown.classList.remove('opacity-100', 'visible');
+          button.setAttribute('aria-expanded', 'false');
+          arrow.style.transform = 'rotate(0deg)';
+        }
+      };
+
+      // Handle click for mobile and desktop
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleDropdown();
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!this.contains(e.target as Node)) {
+          closeDropdown();
+        }
+      });
+
+      // Close dropdown on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeDropdown();
+        }
+      });
+
+      // Handle hover on desktop only
+      const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+      if (mediaQuery.matches) {
+        this.addEventListener('mouseenter', () => {
+          if (!isOpen) toggleDropdown();
+        });
+
+        this.addEventListener('mouseleave', () => {
+          closeDropdown();
+        });
+      }
+    }
+  }
+
+  customElements.define('language-switcher', LanguageSwitcher);
+</script>

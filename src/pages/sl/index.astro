@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Experience from '../../components/Experience.astro';
+import TravelSection from '../../components/TravelSection.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout>
+  <Hero
+    name={t('hero.name')}
+    jobTitle={t('hero.jobTitle')}
+    profileImage="/images/profilka.jpg"
+    subtitle={t('hero.subtitle')}
+  />
+  <Experience />
+  <TravelSection />
+</BaseLayout>

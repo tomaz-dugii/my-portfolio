@@ -1,13 +1,91 @@
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@variant dark (&:where(.dark, .dark *));
 
-@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Primary Brand Color - Warm Coral */
+  --color-primary-50: #fffbeb;
+  --color-primary-100: #fef3c7;
+  --color-primary-200: #fde68a;
+  --color-primary-300: #fcd34d;
+  --color-primary-400: #fbbf24;
+  --color-primary-500: #fb923c; /* Warm Coral - Primary buttons, headlines */
+  --color-primary-600: #f97316; /* Sunset Orange */
+  --color-primary-700: #ea580c;
+  --color-primary-800: #c2410c;
+  --color-primary-900: #9a3412;
+  --color-primary-950: #7c2d12;
+
+  /* Secondary Brand Color - Soft Mint */
+  --color-secondary-50: #ecfdf5;
+  --color-secondary-100: #d1fae5;
+  --color-secondary-200: #a7f3d0;
+  --color-secondary-300: #6ee7b7;
+  --color-secondary-400: #4ade80; /* Soft Mint - Section backgrounds, icons */
+  --color-secondary-500: #22c55e;
+  --color-secondary-600: #16a34a;
+  --color-secondary-700: #15803d;
+  --color-secondary-800: #166534;
+  --color-secondary-900: #14532d;
+  --color-secondary-950: #052e16;
+
+  /* Accent Colors */
+  --color-accent-yellow: #facc15; /* Bright Yellow - Accents, highlights */
+  --color-accent-pink: #f472b6; /* Vibrant Pink - Hover effects, creative accents */
+  --color-accent-orange: #f97316; /* Sunset Orange - Alerts, small accents */
+
+  /* Semantic Colors */
+  --color-success-50: #ecfdf5;
+  --color-success-100: #d1fae5;
+  --color-success-500: #4ade80; /* Soft Mint */
+  --color-success-600: #22c55e;
+  --color-success-700: #16a34a;
+
+  --color-error-50: #fff7ed;
+  --color-error-100: #ffedd5;
+  --color-error-500: #f97316; /* Sunset Orange for errors */
+  --color-error-600: #ea580c;
+  --color-error-700: #c2410c;
+
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-500: #facc15; /* Bright Yellow */
+  --color-warning-600: #eab308;
+  --color-warning-700: #ca8a04;
+
+  --color-info-50: #ecfdf5;
+  --color-info-100: #d1fae5;
+  --color-info-500: #4ade80; /* Soft Mint for info */
+  --color-info-600: #22c55e;
+  --color-info-700: #16a34a;
+
+  /* Theme-aware color mappings for light mode */
+  --color-bg-primary: var(--color-gray-50);
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: var(--color-gray-100);
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-tertiary: var(--color-gray-600);
+  --color-text-muted: var(--color-gray-400);
+  --color-border-default: var(--color-gray-200);
+  --color-border-muted: var(--color-gray-300);
+}
 
 :root {
   color-scheme: light dark;
+}
+
+.dark {
+  /* Dark mode overrides */
+  --color-bg-primary: var(--color-gray-900);
+  --color-bg-secondary: var(--color-gray-800);
+  --color-bg-tertiary: var(--color-gray-700);
+  --color-text-primary: var(--color-gray-100);
+  --color-text-secondary: var(--color-gray-300);
+  --color-text-tertiary: var(--color-gray-400);
+  --color-text-muted: var(--color-gray-500);
+  --color-border-default: var(--color-gray-800);
+  --color-border-muted: var(--color-gray-700);
 }
 
 html {
@@ -20,6 +98,10 @@ html {
   }
   .animation-delay-4000 {
     animation-delay: 4s;
+  }
+  .list-indent {
+    text-indent: -1.4em;
+    padding-left: 1.4em;
   }
 }
 
