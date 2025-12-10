@@ -5,10 +5,17 @@ This document contains the configuration details needed to add Composer 1 from C
 ## Required Configuration
 
 ### Host URL
-```
-https://api.cursor.com
-```
-*Note: This is a placeholder. You may need to use a different endpoint depending on Cursor's API structure.*
+**⚠️ TO BE DETERMINED** - The actual host URL needs to be found from one of these sources:
+- Cursor's official API documentation
+- Cursor Settings → API/Developer settings
+- Cursor's GitHub repository or documentation
+- Cursor support/community
+
+Possible options to check:
+- `https://api.cursor.com` (standard API endpoint)
+- `https://composer.cursor.com` (Composer-specific endpoint)
+- `http://localhost:PORT` (if Cursor runs a local API server)
+- A different domain entirely
 
 ### API Endpoint
 ```

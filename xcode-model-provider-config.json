@@ -1,7 +1,7 @@
 {
   "modelProvider": {
     "name": "Composer 1 (Cursor)",
-    "hostUrl": "https://api.cursor.com",
+    "hostUrl": "REPLACE_WITH_ACTUAL_HOST_URL",
     "apiEndpoint": "/v1/chat/completions",
     "apiKeyHeader": {
       "name": "Authorization",
@@ -17,8 +17,13 @@
       "Content-Type": "application/json"
     },
     "notes": [
+      "⚠️ IMPORTANT: Replace REPLACE_WITH_ACTUAL_HOST_URL with the correct Composer 1 endpoint",
       "Replace {API_KEY} with your actual Cursor API key",
-      "Host URL may need to be adjusted based on Cursor's actual API endpoint",
+      "To find the correct host URL, check:",
+      "  - Cursor Settings → API/Developer settings",
+      "  - Cursor's official documentation",
+      "  - Cursor's GitHub repository",
+      "  - Network tab in browser/devtools when using Composer 1",
       "API endpoint path may vary depending on Cursor's API structure",
       "Check Cursor documentation for the most current API details"
     ]
