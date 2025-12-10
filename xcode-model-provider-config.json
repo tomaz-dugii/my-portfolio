@@ -1,0 +1,26 @@
+{
+  "modelProvider": {
+    "name": "Composer 1 (Cursor)",
+    "hostUrl": "https://api.cursor.com",
+    "apiEndpoint": "/v1/chat/completions",
+    "apiKeyHeader": {
+      "name": "Authorization",
+      "valueFormat": "Bearer {API_KEY}"
+    },
+    "alternativeHeaders": [
+      {
+        "name": "X-API-Key",
+        "valueFormat": "{API_KEY}"
+      }
+    ],
+    "additionalHeaders": {
+      "Content-Type": "application/json"
+    },
+    "notes": [
+      "Replace {API_KEY} with your actual Cursor API key",
+      "Host URL may need to be adjusted based on Cursor's actual API endpoint",
+      "API endpoint path may vary depending on Cursor's API structure",
+      "Check Cursor documentation for the most current API details"
+    ]
+  }
+}
