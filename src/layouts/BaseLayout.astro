@@ -16,10 +16,10 @@ const lang = getLangFromUrl(Astro.url);
     />
   </head>
   <body
-    class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 relative"
+    class="min-h-screen bg-bg-primary dark:bg-bg-primary text-text-primary relative"
   >
     <Navigation pageTitle="TS" />
-    <main class="pt-20">
+    <main id="main-content" class="pt-20">
       <slot />
     </main>
     <Footer />

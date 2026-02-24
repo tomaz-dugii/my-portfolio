@@ -1,0 +1,47 @@
+---
+import {
+  Mail,
+  MapPin,
+  Briefcase,
+  FlaskConical,
+  GraduationCap,
+  Globe,
+  Calendar,
+  BookOpen,
+  Menu,
+  Sun,
+  Moon,
+  Github,
+  Linkedin,
+} from "@lucide/astro";
+
+interface Props {
+  name: string;
+  class?: string;
+  size?: number;
+}
+
+const { name, class: className = "", size = 24 } = Astro.props;
+
+const icons: Record<string, typeof Mail> = {
+  Mail,
+  MapPin,
+  Briefcase,
+  FlaskConical,
+  GraduationCap,
+  Globe,
+  Calendar,
+  BookOpen,
+  Menu,
+  Sun,
+  Moon,
+  Github,
+  Linkedin,
+};
+
+const IconComponent = icons[name];
+---
+
+{IconComponent ? (
+  <IconComponent size={size} class={className} />
+) : null}

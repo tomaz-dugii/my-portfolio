@@ -1,35 +1,22 @@
+---
+import Icon from './icons/Icon.astro';
+---
+
 <theme-toggle>
   <label class="relative inline-flex items-center cursor-pointer">
     <input type="checkbox" class="sr-only peer" />
     <div
-      class="relative w-14 h-7 bg-gray-300 dark:bg-gray-600 rounded-full peer peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 peer-checked:bg-primary-600 transition-colors duration-300"
+      class="relative w-12 h-6 bg-border-default dark:bg-border-default rounded-full peer peer-checked:bg-primary-500 transition-colors duration-200"
     >
-      <!-- Sliding toggle circle with icon -->
       <div
-        class="absolute top-0.5 left-0.5 bg-white rounded-full h-6 w-6 transition-transform duration-300 peer-checked:translate-x-7 flex items-center justify-center shadow-md"
+        class="absolute top-1 left-1 w-4 h-4 rounded-full bg-white shadow-sm transition-transform duration-200 peer-checked:translate-x-6 flex items-center justify-center"
       >
-        <svg
-          class="w-4 h-4 text-gray-700"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            class="sun-icon"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-          ></path>
-          <path
-            class="moon-icon"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          ></path>
-        </svg>
+        <span class="sun-icon block text-text-tertiary">
+          <Icon name="Sun" size={12} />
+        </span>
+        <span class="moon-icon hidden text-text-tertiary">
+          <Icon name="Moon" size={12} />
+        </span>
       </div>
     </div>
   </label>
@@ -39,40 +26,28 @@
   class ThemeToggle extends HTMLElement {
     constructor() {
       super();
-
-      const checkbox = this.querySelector(
-        'input[type="checkbox"]'
-      )! as HTMLInputElement;
+      const checkbox = this.querySelector('input[type="checkbox"]')! as HTMLInputElement;
       const toggleCircle = this.querySelector('div > div')! as HTMLElement;
       const sunIcon = this.querySelector('.sun-icon') as HTMLElement;
       const moonIcon = this.querySelector('.moon-icon') as HTMLElement;
 
-      /** Set the theme to dark/light mode. */
       const setTheme = (dark: boolean) => {
         document.documentElement.classList[dark ? 'add' : 'remove']('dark');
         checkbox.checked = dark;
-
-        // Update toggle position and icon
         if (dark) {
-          toggleCircle.classList.add('translate-x-7');
-          sunIcon.style.display = 'none';
-          moonIcon.style.display = 'block';
+          toggleCircle.classList.add('translate-x-6');
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
         } else {
-          toggleCircle.classList.remove('translate-x-7');
-          sunIcon.style.display = 'block';
-          moonIcon.style.display = 'none';
+          toggleCircle.classList.remove('translate-x-6');
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
         }
       };
 
-      // Toggle the theme when checkbox changes
-      checkbox.addEventListener('change', () => {
-        setTheme(checkbox.checked);
-      });
-
-      // Initialize switch state to reflect current theme
+      checkbox.addEventListener('change', () => setTheme(checkbox.checked));
       setTheme(this.isDark());
     }
-
     isDark() {
       return document.documentElement.classList.contains('dark');
     }

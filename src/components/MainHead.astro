@@ -12,9 +12,14 @@ const { title, description }: Props = Astro.props;
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <meta name="description" property="og:description" content={description} />
-  <!-- <meta http-equiv="refresh" content="0;url=/en/" /> -->
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <script is:inline>
     // This code is inlined in the head to make dark mode instant & blocking.
     const getThemePreference = () => {

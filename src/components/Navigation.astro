@@ -1,25 +1,21 @@
 ---
 import ThemeSwitcher from './ThemeSwitcher.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import Icon from './icons/Icon.astro';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 const textLinks: { label: string; href: string }[] = [
-  {
-    label: t('nav.experience'),
-    href: '#experience',
-  },
-  {
-    label: t('nav.skills'),
-    href: '#skills',
-  },
-  {
-    label: t('nav.contact'),
-    href: '#contact',
-  },
+  { label: t('nav.home'), href: translatePath('/') },
+  { label: t('nav.experience'), href: '#experience' },
+  { label: t('nav.education'), href: '#education' },
+  { label: t('nav.skills'), href: '#skills' },
+  { label: t('nav.contact'), href: '#contact' },
 ];
+
 interface Props {
   pageTitle: string;
 }
@@ -27,101 +23,93 @@ const { pageTitle }: { pageTitle: string } = Astro.props;
 ---
 
 <nav
-  class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800 shadow-sm"
+  class="fixed top-0 left-0 right-0 z-50 border-b border-border-default bg-bg-primary/80 dark:bg-bg-primary/80 backdrop-blur-xl"
 >
-  <div class="mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16">
-      <!-- Site Title -->
-      <div class="flex items-center">
-        <a
-          href="/"
-          class="text-xl font-bold text-primary-600 dark:text-primary-400"
-        >
-          {pageTitle}
-        </a>
-      </div>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      <a
+        href={translatePath('/')}
+        class="font-display text-lg font-semibold text-text-primary"
+      >
+        {pageTitle}
+      </a>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-8">
+      <div class="hidden md:flex items-center gap-1">
         {
           textLinks.map(({ label, href }) => (
             <a
               href={href}
-              class="text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium"
+              class="px-3 py-2 text-sm font-medium text-text-tertiary hover:text-text-primary rounded-lg hover:bg-bg-tertiary dark:hover:bg-bg-secondary transition-colors"
             >
               {label}
             </a>
           ))
         }
-        <LanguageSwitcher />
-        <ThemeSwitcher />
+        <a
+          href="mailto:tomaz.starasinic@gmail.com"
+          class="ml-2 px-4 py-2 bg-primary-500 text-white text-sm font-medium rounded-lg hover:bg-primary-600 transition-colors"
+        >
+          {t('cta.primaryButton')}
+        </a>
+        <div class="ml-4 flex items-center gap-2 pl-4 border-l border-border-default">
+          <LanguageSwitcher />
+          <ThemeSwitcher />
+        </div>
       </div>
 
-      <!-- Mobile Right Side (Language Switcher, Menu Button, Theme Switcher) -->
-      <div class="flex items-center space-x-2 md:hidden">
+      <div class="flex items-center gap-2 md:hidden">
         <LanguageSwitcher />
+        <ThemeSwitcher />
         <menu-button>
           <template>
             <button
-              class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              class="p-2 rounded-lg text-text-tertiary hover:bg-bg-tertiary dark:hover:bg-bg-secondary transition-colors"
               aria-expanded="false"
             >
               <span class="sr-only">Menu</span>
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
+              <Icon name="Menu" size={22} />
             </button>
           </template>
         </menu-button>
-        <ThemeSwitcher />
       </div>
     </div>
   </div>
 
-  <!-- NoScript Fallback (Mobile Navigation) -->
   <noscript>
-    <div class="md:hidden">
-      <div
-        class="px-4 py-2 space-y-1 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
-      >
+    <div class="md:hidden border-t border-border-default">
+      <div class="px-4 py-3 space-y-1">
         {
           textLinks.map(({ label, href }) => (
-            <a
-              href={href}
-              class="block px-3 py-2 text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium rounded-md"
-            >
+            <a href={href} class="block px-3 py-2 text-sm text-text-primary hover:bg-bg-tertiary dark:hover:bg-bg-secondary rounded-lg">
               {label}
             </a>
           ))
         }
+        <a href="mailto:tomaz.starasinic@gmail.com" class="block px-3 py-2 text-sm text-primary-500 font-medium">
+          {t('cta.primaryButton')}
+        </a>
       </div>
     </div>
   </noscript>
 
-  <!-- JavaScript Mobile Menu Content -->
-  <div id="menu-content" hidden class="md:hidden">
-    <div
-      class="px-4 py-2 space-y-1 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
-    >
+  <div id="menu-content" hidden class="md:hidden border-t border-border-default">
+    <div class="px-4 py-3 space-y-1">
       {
         textLinks.map(({ label, href }) => (
           <a
             href={href}
-            class="block px-3 py-2 text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium rounded-md"
+            class="block px-3 py-2 text-sm text-text-primary hover:bg-bg-tertiary dark:hover:bg-bg-tertiary rounded-lg transition-colors"
           >
             {label}
           </a>
         ))
       }
+      <a
+        href="mailto:tomaz.starasinic@gmail.com"
+        class="block px-3 py-2 text-sm text-primary-500 font-medium"
+      >
+        {t('cta.primaryButton')}
+      </a>
     </div>
   </div>
 </nav>
@@ -130,30 +118,23 @@ const { pageTitle }: { pageTitle: string } = Astro.props;
   class MenuButton extends HTMLElement {
     constructor() {
       super();
-
-      // Inject menu toggle button when JS runs
       this.appendChild(this.querySelector('template')!.content.cloneNode(true));
       const btn = this.querySelector('button')!;
-
-      // Hide menu (shown by default to support no-JS browsers)
       const menu = document.getElementById('menu-content')!;
       menu.hidden = true;
 
-      /** Set whether the menu is currently expanded or collapsed. */
       const setExpanded = (expand: boolean) => {
         btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
         menu.hidden = !expand;
       };
 
-      // Toggle menu visibility when the menu button is clicked
       btn.addEventListener('click', () => setExpanded(menu.hidden));
 
-      // Hide menu button for large screens
+      const mediaQueries = window.matchMedia('(min-width: 768px)');
       const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {
         setExpanded(e.matches);
         btn.hidden = e.matches;
       };
-      const mediaQueries = window.matchMedia('(min-width: 50em)');
       handleViewports(mediaQueries);
       mediaQueries.addEventListener('change', handleViewports);
     }

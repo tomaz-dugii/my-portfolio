@@ -10,7 +10,7 @@ const currentLabel = languages[currentLang as keyof typeof languages];
 
 <language-switcher class="relative">
   <button
-    class="flex items-center gap-2 px-3 py-1 rounded text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+    class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium bg-bg-tertiary dark:bg-bg-secondary text-text-primary hover:bg-border-default dark:hover:bg-border-default transition-colors"
     aria-expanded="false"
     aria-haspopup="true"
   >
@@ -30,17 +30,17 @@ const currentLabel = languages[currentLang as keyof typeof languages];
   </button>
 
   <div
-    class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-600 z-50 opacity-0 invisible transition-all duration-200"
+    class="absolute right-0 mt-2 w-48 bg-bg-secondary dark:bg-bg-secondary rounded-lg shadow-lg border border-border-default z-50 opacity-0 invisible transition-all duration-200"
     role="menu"
   >
     {
       Object.entries(languages).map(([lang, label]) => (
         <a
           href={translatePath('/', lang)}
-          class={`flex items-center gap-3 px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors first:rounded-t-md last:rounded-b-md ${
+          class={`flex items-center gap-3 px-4 py-2 text-sm hover:bg-bg-tertiary dark:hover:bg-bg-secondary transition-colors first:rounded-t-lg last:rounded-b-lg ${
             currentLang === lang
-              ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
-              : 'text-gray-800 dark:text-gray-200'
+              ? 'bg-primary-50 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400'
+              : 'text-text-primary'
           }`}
           role="menuitem"
         >

@@ -8,16 +8,31 @@ export const showDefaultLang = false;
 
 export const ui = {
   en: {
+    'nav.home': 'Home',
     'nav.experience': 'Experience',
+    'nav.education': 'Education',
     'nav.skills': 'Skills',
     'nav.contact': 'Contact',
     'hero.name': 'Tomaž Starašinič',
     'hero.jobTitle': 'Experienced Software Developer',
-    'hero.subtitle': 'Flutter & Native iOS/Android Mobile Developer',
+    'hero.subtitle':
+      'Flutter, Native iOS & Android developer. Front-end developer. Co-founder belokranjski-izdelki.si. Traveler at tomazinmasatrip.eu. Hobby photographer & video maker.',
     'hero.location': 'Celje, Slovenia',
+    'hero.github': 'GitHub',
+    'hero.linkedin': 'LinkedIn',
+    'cta.title': 'Ready to work together?',
+    'cta.description':
+      "Let's build something great. Get in touch to discuss your project.",
+    'cta.primaryButton': 'Get in Touch',
     'experience.title': 'Work Experience',
     'experience.otherExperience': 'Other Experience',
     'experience.education': 'Education & Skills',
+    'experience.bplanet.title': 'Mobile Developer',
+    'experience.bplanet.description1': 'Native iOS development with SwiftUI',
+    'experience.bplanet.description2':
+      'Native Android development with Jetpack Compose',
+    'experience.bplanet.description3':
+      'Developing IGNIS app — emergency call response and intervention coordination for firefighting units',
     'experience.mobileDeveloper': 'Mobile Developer',
     'experience.leadIOSDeveloper': 'Lead iOS Developer',
     'experience.softwareDeveloper': 'Software Developer',
@@ -82,16 +97,30 @@ export const ui = {
     'travel.readMyTravelStories': 'Read My Travel Stories',
   },
   sl: {
+    'nav.home': 'Domov',
     'nav.experience': 'Izkušnje',
+    'nav.education': 'Izobrazba',
     'nav.skills': 'Veščine',
     'nav.contact': 'Kontakt',
     'hero.name': 'Tomaž Starašinič',
     'hero.jobTitle': 'Izkušen programski razvijalec',
-    'hero.subtitle': 'Flutter in native iOS/Android mobilni razvijalec',
+    'hero.subtitle':
+      'Flutter, iOS in Android mobilni razvijalec, Front-end razvijalec. Soustanovitelj belokranjski-izdelki.si. Ljubiteljski fotograf in popotnik na tomazinmasatrip.eu.',
     'hero.location': 'Celje, Slovenija',
+    'hero.github': 'GitHub',
+    'hero.linkedin': 'LinkedIn',
+    'cta.title': 'Pripravljeni na sodelovanje?',
+    'cta.description':
+      'Ustvarimo nekaj odličnega. Stopite v stik za pogovor o vašem projektu.',
+    'cta.primaryButton': 'Stopite v stik',
     'experience.title': 'Delovne izkušnje',
     'experience.otherExperience': 'Druge izkušnje',
     'experience.education': 'Izobrazba in veščine',
+    'experience.bplanet.title': 'Mobilni razvijalec',
+    'experience.bplanet.description1': 'iOS razvoj s SwiftUI',
+    'experience.bplanet.description2': ' Android razvoj z Jetpack Compose',
+    'experience.bplanet.description3':
+      'Razvoj aplikacije IGNIS — sprejem klicov v sili in vodenje intervencij za gasilske enote',
     'experience.mobileDeveloper': 'Mobilni razvijalec',
     'experience.leadIOSDeveloper': 'Vodilni iOS razvijalec',
     'experience.softwareDeveloper': 'Programski razvijalec',
