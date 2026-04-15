@@ -1,0 +1,41 @@
+import type { SimpleIcon } from 'simple-icons';
+import {
+  siAndroid,
+  siApachecordova,
+  siAstro,
+  siChartdotjs,
+  siCss3,
+  siDart,
+  siFlutter,
+  siGithub,
+  siHtml5,
+  siJavascript,
+  siJetpackcompose,
+  siKotlin,
+  siOpenjdk,
+  siPhp,
+  siSwift,
+  siTailwindcss,
+  siTypescript,
+} from 'simple-icons';
+
+/** Technologies reflected in portfolio copy (experience + hero). */
+export const techStackIcons: SimpleIcon[] = [
+  siSwift,
+  siKotlin,
+  siAndroid,
+  siJetpackcompose,
+  siFlutter,
+  siDart,
+  siAstro,
+  siTypescript,
+  siTailwindcss,
+  siHtml5,
+  siCss3,
+  siJavascript,
+  siOpenjdk,
+  siApachecordova,
+  siChartdotjs,
+  siPhp,
+  siGithub,
+];

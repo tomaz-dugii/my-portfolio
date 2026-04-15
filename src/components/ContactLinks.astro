@@ -1,0 +1,42 @@
+---
+import Icon from './icons/Icon.astro';
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from '../constants/contact';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' }: Props = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class={className}>
+  <a href={`mailto:${EMAIL}`} class="flex items-center gap-2 hover:text-primary-500 transition-colors">
+    <Icon name="Mail" size={16} />
+    {EMAIL}
+  </a>
+  <div class="flex items-center gap-2">
+    <Icon name="MapPin" size={16} />
+    {t('hero.location')}
+  </div>
+  <a
+    href={GITHUB_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center gap-2 hover:text-primary-500 transition-colors"
+  >
+    <Icon name="Github" size={16} />
+    {t('hero.github')}
+  </a>
+  <a
+    href={LINKEDIN_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center gap-2 hover:text-primary-500 transition-colors"
+  >
+    <Icon name="Linkedin" size={16} />
+    {t('hero.linkedin')}
+  </a>
+</div>

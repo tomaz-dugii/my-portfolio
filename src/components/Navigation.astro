@@ -2,6 +2,7 @@
 import ThemeSwitcher from './ThemeSwitcher.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import Icon from './icons/Icon.astro';
+import { EMAIL } from '../constants/contact';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -46,7 +47,7 @@ const { pageTitle }: { pageTitle: string } = Astro.props;
           ))
         }
         <a
-          href="mailto:tomaz.starasinic@gmail.com"
+          href={`mailto:${EMAIL}`}
           class="ml-2 px-4 py-2 bg-primary-500 text-white text-sm font-medium rounded-lg hover:bg-primary-600 transition-colors"
         >
           {t('cta.primaryButton')}
@@ -85,7 +86,7 @@ const { pageTitle }: { pageTitle: string } = Astro.props;
             </a>
           ))
         }
-        <a href="mailto:tomaz.starasinic@gmail.com" class="block px-3 py-2 text-sm text-primary-500 font-medium">
+        <a href={`mailto:${EMAIL}`} class="block px-3 py-2 text-sm text-primary-500 font-medium">
           {t('cta.primaryButton')}
         </a>
       </div>
@@ -105,7 +106,7 @@ const { pageTitle }: { pageTitle: string } = Astro.props;
         ))
       }
       <a
-        href="mailto:tomaz.starasinic@gmail.com"
+        href={`mailto:${EMAIL}`}
         class="block px-3 py-2 text-sm text-primary-500 font-medium"
       >
         {t('cta.primaryButton')}

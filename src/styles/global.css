@@ -55,6 +55,23 @@
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", ui-serif, Georgia, serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-primary: "Poppins", sans-serif;
+
+  /* Typography scale — from typescale(2).json */
+  --text-display-large: 34px;
+  --text-display-medium: 31px;
+  --text-heading-1: 27px;
+  --text-heading-2: 22px;
+  --text-heading-3: 20px;
+  --text-heading-4: 18px;
+  --text-heading-5: 17px;
+  --text-heading-6: 16px;
+  --text-body-xl: 15px;
+  --text-body: 14px;
+  --text-body-small: 13px;
+  --text-caption: 12px;
+  --text-caption-small: 11px;
+  --text-overline: 11px;
 }
 
 :root {
@@ -77,6 +94,10 @@ html {
   scroll-behavior: smooth;
 }
 
+#main-content [id] {
+  scroll-margin-top: 5rem;
+}
+
 body {
   font-family: var(--font-sans);
 }
@@ -84,6 +105,108 @@ body {
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
+  }
+  .font-primary {
+    font-family: var(--font-primary);
+  }
+  /* Typography scale — Poppins from typescale(2).json */
+  .text-display-large {
+    font-family: var(--font-primary);
+    font-size: var(--text-display-large);
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.012em;
+  }
+  .text-display-medium {
+    font-family: var(--font-primary);
+    font-size: var(--text-display-medium);
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.016em;
+  }
+  .text-heading-1 {
+    font-family: var(--font-primary);
+    font-size: var(--text-heading-1);
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.016em;
+  }
+  .text-heading-2 {
+    font-family: var(--font-primary);
+    font-size: var(--text-heading-2);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  .text-heading-3 {
+    font-family: var(--font-primary);
+    font-size: var(--text-heading-3);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.024em;
+  }
+  .text-heading-4 {
+    font-family: var(--font-primary);
+    font-size: var(--text-heading-4);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.024em;
+  }
+  .text-heading-5 {
+    font-family: var(--font-primary);
+    font-size: var(--text-heading-5);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.024em;
+  }
+  .text-heading-6 {
+    font-family: var(--font-primary);
+    font-size: var(--text-heading-6);
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.024em;
+  }
+  .text-body-xl {
+    font-family: var(--font-primary);
+    font-size: var(--text-body-xl);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.024em;
+  }
+  .text-body {
+    font-family: var(--font-primary);
+    font-size: var(--text-body);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.024em;
+  }
+  .text-body-small {
+    font-family: var(--font-primary);
+    font-size: var(--text-body-small);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.024em;
+  }
+  .text-caption {
+    font-family: var(--font-primary);
+    font-size: var(--text-caption);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.024em;
+  }
+  .text-caption-small {
+    font-family: var(--font-primary);
+    font-size: var(--text-caption-small);
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0.024em;
+  }
+  .text-overline {
+    font-family: var(--font-primary);
+    font-size: var(--text-overline);
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.024em;
   }
   .list-indent {
     text-indent: -1.4em;

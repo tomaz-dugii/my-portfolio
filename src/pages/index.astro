@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactLinks from '../components/ContactLinks.astro';
 import Hero from '../components/Hero.astro';
 import Experience from '../components/Experience.astro';
 import TravelSection from '../components/TravelSection.astro';
+import { EMAIL } from '../constants/contact';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -26,8 +28,9 @@ const t = useTranslations(lang);
       <p class="text-text-tertiary mb-6">
         {t('cta.description')}
       </p>
+      <ContactLinks class="flex flex-wrap justify-center gap-6 mb-8 text-sm text-text-tertiary" />
       <a
-        href="mailto:tomaz.starasinic@gmail.com"
+        href={`mailto:${EMAIL}`}
         class="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 text-white font-semibold rounded-lg hover:bg-primary-600 transition-colors"
       >
         {t('cta.primaryButton')}

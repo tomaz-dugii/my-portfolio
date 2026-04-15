@@ -42,6 +42,9 @@ export const ui = {
     'experience.headTechnical': 'Head of Technical team at Črnfest',
     'experience.education.title': 'Education',
     'experience.languages.title': 'Languages',
+    'experience.techStack.title': 'Technologies I work with',
+    'experience.techStack.subtitle':
+      'Tools and platforms from my previous roles and projects—mobile and web.',
     'experience.english': 'English',
     'experience.slovenian': 'Slovenian',
     'experience.croatian': 'Croatian',
@@ -130,6 +133,9 @@ export const ui = {
     'experience.headTechnical': 'Vodja tehnične ekipe na Črnfestu',
     'experience.education.title': 'Izobrazba',
     'experience.languages.title': 'Jeziki',
+    'experience.techStack.title': 'Tehnologije, s katerimi delam',
+    'experience.techStack.subtitle':
+      'Orodja in platforme iz mojih predhodnih vlog in projektov—mobilne in spletne aplikacije.',
     'experience.english': 'Angleščina',
     'experience.slovenian': 'Slovenščina',
     'experience.croatian': 'Hrvaščina',

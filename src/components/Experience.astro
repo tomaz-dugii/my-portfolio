@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import Icon from './icons/Icon.astro';
+import TechStackMarquee from './TechStackMarquee.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -205,5 +206,7 @@ const t = useTranslations(lang);
         </div>
       </article>
     </div>
+
+    <TechStackMarquee />
   </div>
 </section>

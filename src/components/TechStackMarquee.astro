@@ -1,0 +1,100 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { techStackIcons } from '../constants/techStack';
+import BrandIcon from './icons/BrandIcon.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div
+  class="mt-8 rounded-xl border border-border-default bg-bg-primary dark:bg-bg-primary p-6 sm:p-8"
+  aria-labelledby="tech-stack-heading"
+>
+  <h3 id="tech-stack-heading" class="font-display text-lg font-semibold text-text-primary mb-6">
+    {t('experience.techStack.title')}
+  </h3>
+  <p class="text-sm text-text-tertiary mb-6 max-w-2xl">
+    {t('experience.techStack.subtitle')}
+  </p>
+
+  <div class="tech-marquee text-text-secondary dark:text-text-secondary">
+    <div class="tech-marquee__track">
+      <div class="tech-marquee__group">
+        {
+          techStackIcons.map((icon) => (
+            <div class="tech-marquee__item shrink-0" title={icon.title}>
+              <BrandIcon icon={icon} size={36} class="opacity-90 hover:opacity-100 transition-opacity" />
+            </div>
+          ))
+        }
+      </div>
+      <div class="tech-marquee__group tech-marquee__group--clone" aria-hidden="true">
+        {
+          techStackIcons.map((icon) => (
+            <div class="tech-marquee__item shrink-0" title={icon.title}>
+              <BrandIcon icon={icon} size={36} class="opacity-90 hover:opacity-100 transition-opacity" />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .tech-marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 6%,
+      black 94%,
+      transparent
+    );
+  }
+
+  .tech-marquee__track {
+    display: flex;
+    width: max-content;
+    gap: 2.5rem;
+    align-items: center;
+    animation: tech-marquee-scroll 52s linear infinite;
+  }
+
+  .tech-marquee__group {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  @keyframes tech-marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tech-marquee {
+      overflow: visible;
+      mask-image: none;
+    }
+
+    .tech-marquee__track {
+      animation: none;
+      transform: none;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 1.25rem;
+      column-gap: 2rem;
+    }
+
+    .tech-marquee__group--clone {
+      display: none;
+    }
+  }
+</style>
