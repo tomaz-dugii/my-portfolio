@@ -1,4 +1,5 @@
 ---
+import profilePhoto from '../assets/images/profilka.jpg';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactLinks from '../components/ContactLinks.astro';
 import Hero from '../components/Hero.astro';
@@ -16,7 +17,7 @@ const t = useTranslations(lang);
   <Hero
     name={t('hero.name')}
     jobTitle={t('hero.jobTitle')}
-    profileImage="/images/profilka.jpg"
+    profileImage={profilePhoto}
     subtitle={t('hero.subtitle')}
   />
   <Experience />

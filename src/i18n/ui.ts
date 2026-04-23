@@ -43,6 +43,7 @@ export const ui = {
       'Native Android development with Jetpack Compose',
     'experience.bplanet.description3':
       'Developing IGNIS app — emergency call response and intervention coordination for firefighting units',
+    'experience.bplanet.period': 'BPLANET d.o.o. / 2026 -',
     'experience.mobileDeveloper': 'Mobile Developer',
     'experience.leadIOSDeveloper': 'Lead iOS Developer',
     'experience.softwareDeveloper': 'Software Developer',
@@ -66,6 +67,7 @@ export const ui = {
     'experience.noctocode.description3': 'Cross platform Flutter developer',
     'experience.noctocode.description4':
       'Working on Crypto apps, News apps and Medical apps',
+    'experience.noctocode.period': 'Noctocode d.o.o / 2024 - 2025',
 
     // Experience - Global Distress Technologies
     'experience.gdt.description1': 'Lead iOS developer - Objective-C and Swift',
@@ -75,6 +77,8 @@ export const ui = {
       'Designed and maintained software architecture',
     'experience.gdt.description4':
       'Integrated advanced geolocation, geofencing APIs, and single sign-on (SSO).',
+    'experience.gdt.period':
+      'Global Distress Technologies - Australia / 2023-2024',
 
     // Experience - Dhimahi
     'experience.dhimahi.description1':
@@ -85,6 +89,7 @@ export const ui = {
       'Developed Flutter mobile and web applications',
     'experience.dhimahi.description4':
       'Learned to switch quickly between projects and programming languages. Learned about GDPR and protections for underage users on a social networking platform.',
+    'experience.dhimahi.period': 'Dhimahi / 2021-2023',
 
     // Experience - Limitlex
     'experience.limitlex.description1':
@@ -95,11 +100,15 @@ export const ui = {
       'Built a responsive exchange UI, interactive trading charts, and transaction workflows through REST API integrations and PHP backend logic.',
     'experience.limitlex.description4':
       'Developed crypto wallet mobile app with Apache Cordova',
+    'experience.limitlex.period': 'Limitlex / 2019-2021',
 
     // Experience - Other roles
     'experience.presidenPGD': 'President of PGD Podzemelj',
+    'experience.pgd.period': '2019-2023',
     'experience.eventOrganiser': 'Event organiser at Škisova Tržnica',
+    'experience.eventOrganiser.period': '2019-2020',
     'experience.headTechnical': 'Head of Technical team at Črnfest',
+    'experience.headTechnical.period': '2019',
     'experience.skis.supervisoryBoard':
       'Chair of the Supervisory Board, ŠKIS Union of Student Clubs',
 
@@ -140,6 +149,7 @@ export const ui = {
     'portfolio.visitWebsite': 'Visit website',
     'portfolio.backHome': 'Back to home',
     'portfolio.stack': 'Stack',
+    'portfolio.lightbox.openGallery': 'Open gallery',
 
     // Portfolio - BPLANET (IGNIS)
     'portfolio.ignis.title': 'IGNIS',
@@ -214,7 +224,7 @@ export const ui = {
 
     // Hero
     'hero.name': 'Tomaž Starašinič',
-    'hero.jobTitle': 'Izkušen programski razvijalec',
+    'hero.jobTitle': 'Izkušen Software Developer',
     'hero.subtitle':
       'Flutter, iOS in Android mobilni razvijalec, Front-end razvijalec. Soustanovitelj belokranjski-izdelki.si. Ljubiteljski fotograf in popotnik na tomazinmasatrip.eu.',
     'hero.location': 'Celje, Slovenija',
@@ -238,6 +248,7 @@ export const ui = {
     'experience.bplanet.description2': ' Android razvoj z Jetpack Compose',
     'experience.bplanet.description3':
       'Razvoj aplikacije IGNIS — sprejem klicov v sili in vodenje intervencij za gasilske enote',
+    'experience.bplanet.period': 'BPLANET d.o.o. / 2026 -',
     'experience.mobileDeveloper': 'Mobilni razvijalec',
     'experience.leadIOSDeveloper': 'Vodilni iOS razvijalec',
     'experience.softwareDeveloper': 'Programski razvijalec',
@@ -261,6 +272,7 @@ export const ui = {
     'experience.noctocode.description3': 'Večplatformni Flutter razvijalec',
     'experience.noctocode.description4':
       'Delo na kripto aplikacijah, novičarskih aplikacijah in medicinskih aplikacijah',
+    'experience.noctocode.period': 'Noctocode d.o.o. / 2024 - 2025',
 
     // Experience - Global Distress Technologies
     'experience.gdt.description1':
@@ -271,6 +283,8 @@ export const ui = {
       'Zasnoval in vzdrževal programsko arhitekturo',
     'experience.gdt.description4':
       'Integriral napredno geolokacijo, geofencing API-je in SSO (single sign-on).',
+    'experience.gdt.period':
+      'Global Distress Technologies - Avstralija / 2023-2024',
 
     // Experience - Dhimahi
     'experience.dhimahi.description1':
@@ -280,6 +294,7 @@ export const ui = {
       'Razvijal Flutter mobilne in spletne aplikacije',
     'experience.dhimahi.description4':
       'Hitro preklapljanje med projekti in programskimi jeziki. Spoznavanje GDPR in varstva mladoletnih uporabnikov na družbenem omrežju.',
+    'experience.dhimahi.period': 'Dhimahi / 2021-2023',
 
     // Experience - Limitlex
     'experience.limitlex.description1':
@@ -290,11 +305,15 @@ export const ui = {
       'Razvijal odziven uporabniški vmesnik menjalnice, interaktivne trgovalne grafe ter transakcijske poti prek integracij REST API-jev in logike PHP backenda.',
     'experience.limitlex.description4':
       'Razvijal kripto denarnico mobilno aplikacijo z Apache Cordova',
+    'experience.limitlex.period': 'Limitlex / 2019-2021',
 
     // Experience - Other leadership roles description
     'experience.presidenPGD': 'Predsednik PGD Podzemelj',
+    'experience.pgd.period': '2019-2023',
     'experience.eventOrganiser': 'Organizator dogodkov na Škisovi Tržnici',
+    'experience.eventOrganiser.period': '2019-2020',
     'experience.headTechnical': 'Vodja tehnične ekipe na Črnfestu',
+    'experience.headTechnical.period': '2019',
     'experience.skis.supervisoryBoard':
       'Predsednik nadzorne komisije Zveze ŠKIS',
 
@@ -304,6 +323,7 @@ export const ui = {
       'Pridobil sem izkušnje z upravljanjem velikih dogodkov, nadzorom zunanjih delavcev in koordinacijo programa dogodka ter z učinkovitim upravljanjem časa in nadzorom velikih projektov. Sodeloval sem pri organizaciji največjega enodnevnega študentskega dogodka v Sloveniji, ki je gostil približno 25.000 udeležencev.',
     'experience.headTechnical.description':
       'Vodja tehnične ekipe na prireditvi. Upravljanje zunanjih partnerjev, kot so ponudniki odrske tehnike in orvočenja, varnostna služba prireditve, zapore cest ter seveda drugi člani ekipe. Odgovoren za varnost, osnovne storitve in tehnično odličnost.',
+
     // ŠKIS description
     'experience.skis.supervisoryBoard.meta': '2019-2020',
     'experience.skis.supervisoryBoard.intro':
@@ -334,6 +354,7 @@ export const ui = {
     'portfolio.visitWebsite': 'Obišči spletno stran',
     'portfolio.backHome': 'Nazaj na domačo stran',
     'portfolio.stack': 'Tehnologije',
+    'portfolio.lightbox.openGallery': 'Odpri galerijo',
 
     // Portfolio - BPLANET (IGNIS)
     'portfolio.ignis.title': 'IGNIS',

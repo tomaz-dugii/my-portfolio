@@ -1,5 +1,8 @@
 ---
 import Icon from './icons/Icon.astro';
+import BrandIcon from './icons/BrandIcon.astro';
+import LinkedInIcon from './icons/LinkedInIcon.astro';
+import { siGithub } from 'simple-icons';
 import { EMAIL, GITHUB_URL, LINKEDIN_URL } from '../constants/contact';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -27,7 +30,7 @@ const t = useTranslations(lang);
     rel="noopener noreferrer"
     class="flex items-center gap-2 hover:text-primary-500 transition-colors"
   >
-    <Icon name="Github" size={16} />
+    <BrandIcon icon={siGithub} size={16} class="shrink-0" />
     {t('hero.github')}
   </a>
   <a
@@ -36,7 +39,7 @@ const t = useTranslations(lang);
     rel="noopener noreferrer"
     class="flex items-center gap-2 hover:text-primary-500 transition-colors"
   >
-    <Icon name="Linkedin" size={16} />
+    <LinkedInIcon size={16} class="shrink-0" />
     {t('hero.linkedin')}
   </a>
 </div>

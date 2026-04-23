@@ -1,4 +1,5 @@
 ---
+import { getImage, Image } from 'astro:assets';
 import Icon from './icons/Icon.astro';
 import type { PortfolioProject } from '../constants/portfolio';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
@@ -14,6 +15,12 @@ const t = useTranslations(lang);
 
 const background = index % 2 === 0 ? 'bg-bg-primary' : 'bg-bg-secondary';
 const [heroImage, ...secondaryImages] = project.images;
+const galleryName = `portfolio-gallery-${project.id}`;
+
+const heroLightbox = await getImage({ src: heroImage, width: 2000, quality: 85 });
+const secondaryLightbox = await Promise.all(
+  secondaryImages.map((img) => getImage({ src: img, width: 2000, quality: 85 })),
+);
 ---
 
 <section
@@ -27,11 +34,14 @@ const [heroImage, ...secondaryImages] = project.images;
           <div
             class="w-14 h-14 rounded-xl overflow-hidden ring-1 ring-border-default bg-bg-tertiary flex items-center justify-center"
           >
-            <img
+            <Image
               src={project.logo}
               alt=""
+              class="h-full w-full object-cover"
+              width={56}
+              height={56}
+              sizes="56px"
               loading="lazy"
-              class="w-full h-full object-cover"
             />
           </div>
           <span
@@ -88,28 +98,40 @@ const [heroImage, ...secondaryImages] = project.images;
 
       <div class="lg:col-span-3">
         <div class="grid grid-cols-2 gap-3 sm:gap-4">
-          <div
-            class="col-span-2 rounded-2xl overflow-hidden ring-1 ring-border-default bg-bg-tertiary"
+          <a
+            href={heroLightbox.src}
+            class="glightbox group relative col-span-2 block rounded-2xl overflow-hidden ring-1 ring-border-default bg-bg-tertiary outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+            data-gallery={galleryName}
+            aria-label={`${t(project.titleKey)} — ${t('portfolio.lightbox.openGallery')}`}
           >
-            <img
+            <Image
               src={heroImage}
               alt={t(project.titleKey)}
+              class="h-full w-full object-cover aspect-[16/10] transition-transform duration-300 group-hover:scale-[1.02]"
+              sizes="(min-width: 1024px) 55vw, 100vw"
+              widths={[480, 800, 1200, 1600, 2000]}
               loading="lazy"
               decoding="async"
-              class="w-full h-full object-cover aspect-[16/10]"
             />
-          </div>
+          </a>
           {
-            secondaryImages.map((image) => (
-              <div class="rounded-xl overflow-hidden ring-1 ring-border-default bg-bg-tertiary">
-                <img
+            secondaryImages.map((image, i) => (
+              <a
+                href={secondaryLightbox[i].src}
+                class="glightbox group relative block rounded-xl overflow-hidden ring-1 ring-border-default bg-bg-tertiary outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                data-gallery={galleryName}
+                aria-label={t('portfolio.lightbox.openGallery')}
+              >
+                <Image
                   src={image}
                   alt=""
+                  class="h-full w-full object-cover aspect-[4/3] transition-transform duration-300 group-hover:scale-[1.02]"
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  widths={[400, 600, 800, 1200]}
                   loading="lazy"
                   decoding="async"
-                  class="w-full h-full object-cover aspect-[4/3]"
                 />
-              </div>
+              </a>
             ))
           }
         </div>
