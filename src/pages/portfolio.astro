@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/icons/Icon.astro';
+import PortfolioProject from '../components/PortfolioProject.astro';
+import ContactLinks from '../components/ContactLinks.astro';
+import { portfolioProjects } from '../constants/portfolio';
+import { EMAIL } from '../constants/contact';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<BaseLayout>
+  <section class="py-12 sm:py-16 bg-bg-primary dark:bg-bg-primary border-b border-border-default">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a
+        href={`${translatePath('/')}#portfolio`}
+        class="inline-flex items-center gap-2 text-sm text-text-tertiary hover:text-primary-500 transition-colors mb-6"
+      >
+        <Icon name="ArrowLeft" size={16} />
+        {t('portfolio.backHome')}
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="p-2 rounded-lg bg-primary-500/10 dark:bg-primary-500/20">
+          <Icon name="FolderKanban" size={24} class="text-primary-500" />
+        </div>
+        <h1 class="font-display text-3xl sm:text-4xl font-bold text-text-primary">
+          {t('portfolio.page.title')}
+        </h1>
+      </div>
+      <p class="text-text-tertiary max-w-2xl text-balance">
+        {t('portfolio.page.subtitle')}
+      </p>
+
+      <nav aria-label="Projects" class="mt-8 flex flex-wrap gap-2">
+        {
+          portfolioProjects.map((project) => (
+            <a
+              href={`#${project.id}`}
+              class="text-xs font-medium px-3 py-1.5 rounded-full border border-border-default text-text-tertiary hover:text-primary-500 hover:border-primary-500/40 transition-colors"
+            >
+              {t(project.titleKey)}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+
+  {
+    portfolioProjects.map((project, index) => (
+      <PortfolioProject project={project} index={index} />
+    ))
+  }
+
+  <section class="py-12 sm:py-16 bg-bg-primary dark:bg-bg-primary border-t border-border-default">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-xl sm:text-2xl font-bold text-text-primary mb-2">
+        {t('cta.title')}
+      </h2>
+      <p class="text-text-tertiary mb-6">
+        {t('cta.description')}
+      </p>
+      <ContactLinks class="flex flex-wrap justify-center gap-6 mb-8 text-sm text-text-tertiary" />
+      <a
+        href={`mailto:${EMAIL}`}
+        class="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 text-white font-semibold rounded-lg hover:bg-primary-600 transition-colors"
+      >
+        {t('cta.primaryButton')}
+      </a>
+    </div>
+  </section>
+</BaseLayout>
