@@ -113,6 +113,10 @@ export const portfolioProjects: PortfolioProject[] = [
       imagePath('noctocode-apps', 'flexPark-2.png'),
     ],
     stack: ['Swift', 'SwiftUI', 'Objective-C', 'Kotlin', 'Flutter'],
+    link: {
+      href: 'https://flexpark.org/',
+      labelKey: 'portfolio.visitWebsite',
+    },
   },
 
   {
