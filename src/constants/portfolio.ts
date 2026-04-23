@@ -1,4 +1,6 @@
+import type { ImageMetadata } from 'astro';
 import type { UIDict } from '../i18n/ui';
+import { portfolioImage } from './portfolio-assets';
 
 type TranslationKey = keyof UIDict;
 
@@ -13,15 +15,14 @@ export interface PortfolioProject {
   subtitleKey: TranslationKey;
   descriptionKey: TranslationKey;
   durationKey: TranslationKey;
-  logo: string;
-  cardImage: string;
-  images: string[];
+  logo: ImageMetadata;
+  cardImage: ImageMetadata;
+  images: ImageMetadata[];
   stack: string[];
   link?: PortfolioLink;
 }
 
-const imagePath = (id: string, file: string) =>
-  `/images/portfolio/${id}/${file}`;
+const asset = (id: string, file: string) => portfolioImage(`${id}/${file}`);
 
 export const portfolioProjects: PortfolioProject[] = [
   {
@@ -30,12 +31,12 @@ export const portfolioProjects: PortfolioProject[] = [
     subtitleKey: 'portfolio.ignis.subtitle',
     descriptionKey: 'portfolio.ignis.description',
     durationKey: 'portfolio.ignis.duration',
-    logo: imagePath('ignis', 'ignis-logo.webp'),
-    cardImage: imagePath('ignis', 'ignis-cover2.png'),
+    logo: asset('ignis', 'ignis-logo.webp'),
+    cardImage: asset('ignis', 'ignis-cover2.png'),
     images: [
-      imagePath('ignis', 'ignis-cover2.png'),
-      imagePath('ignis', 'agnis-alert-details.webp'),
-      imagePath('ignis', 'ignis-alert.webp'),
+      asset('ignis', 'ignis-cover2.png'),
+      asset('ignis', 'agnis-alert-details.webp'),
+      asset('ignis', 'ignis-alert.webp'),
     ],
     stack: ['SwiftUI', 'Jetpack Compose', 'Kotlin', 'Swift'],
     link: {
@@ -49,13 +50,9 @@ export const portfolioProjects: PortfolioProject[] = [
     subtitleKey: 'portfolio.gdt.subtitle',
     descriptionKey: 'portfolio.gdt.description',
     durationKey: 'portfolio.gdt.duration',
-    logo: imagePath('gdt', 'WorkSafe-Guardian-logo.jpeg'),
-    cardImage: imagePath('gdt', 'wsg-cover.png'),
-    images: [
-      imagePath('gdt', 'wsg-cover.png'),
-      imagePath('gdt', 'wsg-1.png'),
-      imagePath('gdt', 'wsg.png'),
-    ],
+    logo: asset('gdt', 'WorkSafe-Guardian-logo.jpeg'),
+    cardImage: asset('gdt', 'wsg-cover.png'),
+    images: [asset('gdt', 'wsg-cover.png'), asset('gdt', 'wsg-1.png'), asset('gdt', 'wsg.png')],
     stack: [
       'Swift',
       'Objective-C',
@@ -75,12 +72,12 @@ export const portfolioProjects: PortfolioProject[] = [
     subtitleKey: 'portfolio.dhimahi.subtitle',
     descriptionKey: 'portfolio.dhimahi.description',
     durationKey: 'portfolio.dhimahi.duration',
-    logo: imagePath('dhimahi-flutter', 'logo-mini-cp.svg'),
-    cardImage: imagePath('dhimahi-flutter', 'cp_cover.png'),
+    logo: asset('dhimahi-flutter', 'logo-mini-cp.svg'),
+    cardImage: asset('dhimahi-flutter', 'cp_cover.png'),
     images: [
-      imagePath('dhimahi-flutter', 'cp_cover.png'),
-      imagePath('dhimahi-flutter', 'cp-1.png'),
-      imagePath('dhimahi-flutter', 'cp-2.png'),
+      asset('dhimahi-flutter', 'cp_cover.png'),
+      asset('dhimahi-flutter', 'cp-1.png'),
+      asset('dhimahi-flutter', 'cp-2.png'),
     ],
     stack: [
       'Flutter',
@@ -105,12 +102,12 @@ export const portfolioProjects: PortfolioProject[] = [
     subtitleKey: 'portfolio.noctocode.subtitle',
     descriptionKey: 'portfolio.noctocode.description',
     durationKey: 'portfolio.noctocode.duration',
-    logo: imagePath('noctocode-apps', 'flexPark-logo.svg'),
-    cardImage: imagePath('noctocode-apps', 'flexPark-cover.png'),
+    logo: asset('noctocode-apps', 'flexPark-logo.svg'),
+    cardImage: asset('noctocode-apps', 'flexPark-cover.png'),
     images: [
-      imagePath('noctocode-apps', 'flexPark-cover.png'),
-      imagePath('noctocode-apps', 'flexPark-3.png'),
-      imagePath('noctocode-apps', 'flexPark-2.png'),
+      asset('noctocode-apps', 'flexPark-cover.png'),
+      asset('noctocode-apps', 'flexPark-3.png'),
+      asset('noctocode-apps', 'flexPark-2.png'),
     ],
     stack: ['Swift', 'SwiftUI', 'Objective-C', 'Kotlin', 'Flutter'],
     link: {
@@ -125,12 +122,12 @@ export const portfolioProjects: PortfolioProject[] = [
     subtitleKey: 'portfolio.limitlex.subtitle',
     descriptionKey: 'portfolio.limitlex.description',
     durationKey: 'portfolio.limitlex.duration',
-    logo: imagePath('limitlex', 'limitlex-logo.png'),
-    cardImage: imagePath('limitlex', 'limitlex-cover.png'),
+    logo: asset('limitlex', 'limitlex-logo.png'),
+    cardImage: asset('limitlex', 'limitlex-cover.png'),
     images: [
-      imagePath('limitlex', 'limitlex-cover.png'),
-      imagePath('limitlex', 'limitlex-graph.png'),
-      imagePath('limitlex', 'limitlex-sign.png'),
+      asset('limitlex', 'limitlex-cover.png'),
+      asset('limitlex', 'limitlex-graph.png'),
+      asset('limitlex', 'limitlex-sign.png'),
     ],
     stack: [
       'HTML',
@@ -153,12 +150,12 @@ export const portfolioProjects: PortfolioProject[] = [
     subtitleKey: 'portfolio.tomazinmasatrip.eu.subtitle',
     descriptionKey: 'portfolio.tomazinmasatrip.eu.description',
     durationKey: 'portfolio.tomazinmasatrip.eu.duration',
-    logo: imagePath('tomazinmasatrip', 'logo_tmsp.png'),
-    cardImage: imagePath('tomazinmasatrip', 'tsmp.png'),
+    logo: asset('tomazinmasatrip', 'logo_tmsp.png'),
+    cardImage: asset('tomazinmasatrip', 'tsmp.png'),
     images: [
-      imagePath('tomazinmasatrip', 'tsmp.png'),
-      imagePath('tomazinmasatrip', 'tsmp-1.png'),
-      imagePath('tomazinmasatrip', 'tsmp-2.png'),
+      asset('tomazinmasatrip', 'tsmp.png'),
+      asset('tomazinmasatrip', 'tsmp-1.png'),
+      asset('tomazinmasatrip', 'tsmp-2.png'),
     ],
     stack: ['Web', 'TypeScript', 'HTML', 'CSS', 'Astro', 'Tailwind CSS'],
     link: {
@@ -172,12 +169,12 @@ export const portfolioProjects: PortfolioProject[] = [
     subtitleKey: 'portfolio.belokranjski.subtitle',
     descriptionKey: 'portfolio.belokranjski.description',
     durationKey: 'portfolio.belokranjski.duration',
-    logo: imagePath('belokranjski-izdelki', 'bk-izdelki-logo.png'),
-    cardImage: imagePath('belokranjski-izdelki', 'bk-izdelki-2.png'),
+    logo: asset('belokranjski-izdelki', 'bk-izdelki-logo.png'),
+    cardImage: asset('belokranjski-izdelki', 'bk-izdelki-2.png'),
     images: [
-      imagePath('belokranjski-izdelki', 'bk-izdelki-1.png'),
-      imagePath('belokranjski-izdelki', 'bk-izdelki-2.png'),
-      imagePath('belokranjski-izdelki', 'bk-izdelki-3.png'),
+      asset('belokranjski-izdelki', 'bk-izdelki-1.png'),
+      asset('belokranjski-izdelki', 'bk-izdelki-2.png'),
+      asset('belokranjski-izdelki', 'bk-izdelki-3.png'),
     ],
     stack: [
       'E-commerce',

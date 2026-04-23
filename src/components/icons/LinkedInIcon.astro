@@ -1,0 +1,17 @@
+---
+import linkedinSvg from './linkedin.svg?raw';
+
+interface Props {
+  class?: string;
+  size?: number;
+}
+
+const { class: className = '', size = 16 } = Astro.props;
+---
+
+<div
+  class:list={['inline-block shrink-0 [&_svg]:block', className]}
+  style={`width:${size}px;height:${size}px`}
+  aria-hidden="true"
+  set:html={linkedinSvg}
+/>

@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import ContactLinks from './ContactLinks.astro';
 import Icon from './icons/Icon.astro';
 import { EMAIL } from '../constants/contact';
@@ -8,7 +10,7 @@ interface Props {
   name: string;
   subtitle: string;
   jobTitle: string;
-  profileImage: string;
+  profileImage: ImageMetadata;
 }
 
 const { name, jobTitle, profileImage, subtitle }: Props = Astro.props;
@@ -79,10 +81,19 @@ const t = useTranslations(lang);
           <div
             class="relative w-52 h-52 sm:w-56 sm:h-56 lg:w-72 lg:h-72 rounded-2xl overflow-hidden ring-1 ring-border-default"
           >
-            <img
+            <Image
               src={profileImage}
               alt="Profile photo"
-              class="w-full h-full object-cover object-center"
+              class="h-full w-full object-cover object-center"
+              sizes="(min-width: 1024px) 288px, (min-width: 640px) 224px, 208px"
+              widths={[208, 288, 400, 576]}
+              width={400}
+              height={400}
+              format="avif"
+              layout="constrained"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
             />
           </div>
         </div>

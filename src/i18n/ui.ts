@@ -149,6 +149,7 @@ export const ui = {
     'portfolio.visitWebsite': 'Visit website',
     'portfolio.backHome': 'Back to home',
     'portfolio.stack': 'Stack',
+    'portfolio.lightbox.openGallery': 'Open gallery',
 
     // Portfolio - BPLANET (IGNIS)
     'portfolio.ignis.title': 'IGNIS',
@@ -353,6 +354,7 @@ export const ui = {
     'portfolio.visitWebsite': 'Obišči spletno stran',
     'portfolio.backHome': 'Nazaj na domačo stran',
     'portfolio.stack': 'Tehnologije',
+    'portfolio.lightbox.openGallery': 'Odpri galerijo',
 
     // Portfolio - BPLANET (IGNIS)
     'portfolio.ignis.title': 'IGNIS',

@@ -51,11 +51,11 @@
   --color-border-default: #d4d8d0;
   --color-border-muted: #c5cec8;
 
-  /* Fonts — Preset A */
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", ui-serif, Georgia, serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --font-primary: "Poppins", sans-serif;
+  /* Poppins — used for UI text, display headings, and typography scale */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: var(--font-sans);
+  --font-primary: var(--font-sans);
 
   /* Typography scale — from typescale(2).json */
   --text-display-large: 34px;
@@ -109,7 +109,7 @@ body {
   .font-primary {
     font-family: var(--font-primary);
   }
-  /* Typography scale — Poppins from typescale(2).json */
+  /* Typography scale — from typescale(2).json (Poppins) */
   .text-display-large {
     font-family: var(--font-primary);
     font-size: var(--text-display-large);
