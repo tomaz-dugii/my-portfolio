@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactLinks from '../../components/ContactLinks.astro';
 import Hero from '../../components/Hero.astro';
 import Experience from '../../components/Experience.astro';
+import PortfolioSection from '../../components/PortfolioSection.astro';
 import TravelSection from '../../components/TravelSection.astro';
 import { EMAIL } from '../../constants/contact';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
@@ -19,6 +20,7 @@ const t = useTranslations(lang);
     subtitle={t('hero.subtitle')}
   />
   <Experience />
+  <PortfolioSection />
   <TravelSection />
   <section id="contact" class="py-12 sm:py-16 bg-bg-primary dark:bg-bg-primary border-t border-border-default">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

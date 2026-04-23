@@ -1,0 +1,29 @@
+---
+import Icon from './icons/Icon.astro';
+import PortfolioCard from './PortfolioCard.astro';
+import { portfolioProjects } from '../constants/portfolio';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="portfolio" class="py-16 sm:py-24 bg-bg-primary dark:bg-bg-primary">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="p-2 rounded-lg bg-primary-500/10 dark:bg-primary-500/20">
+        <Icon name="FolderKanban" size={24} class="text-primary-500" />
+      </div>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-text-primary">
+        {t('portfolio.title')}
+      </h2>
+    </div>
+    <p class="text-text-tertiary max-w-2xl mb-12 text-balance">
+      {t('portfolio.subtitle')}
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {portfolioProjects.map((project) => <PortfolioCard project={project} />)}
+    </div>
+  </div>
+</section>
