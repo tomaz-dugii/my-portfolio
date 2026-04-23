@@ -33,7 +33,7 @@ export const ui = {
 
     // Experience
     'experience.title': 'Work Experience',
-    'experience.otherExperience': 'Other Experience',
+    'experience.otherExperience': 'Leadership and Organizational Roles',
     'experience.education': 'Education & Skills',
 
     // Experience - BPLANET
@@ -47,9 +47,7 @@ export const ui = {
     'experience.leadIOSDeveloper': 'Lead iOS Developer',
     'experience.softwareDeveloper': 'Software Developer',
     'experience.juniorDeveloper': 'Junior Developer',
-    'experience.presidenPGD': 'President of PGD Podzemelj',
-    'experience.eventOrganiser': 'Event organiser at Škisova Tržnica',
-    'experience.headTechnical': 'Head of Technical team at Črnfest',
+
     'experience.education.title': 'Education',
     'experience.languages.title': 'Languages',
     'experience.techStack.title': 'Technologies I work with',
@@ -99,12 +97,33 @@ export const ui = {
       'Developed crypto wallet mobile app with Apache Cordova',
 
     // Experience - Other roles
+    'experience.presidenPGD': 'President of PGD Podzemelj',
+    'experience.eventOrganiser': 'Event organiser at Škisova Tržnica',
+    'experience.headTechnical': 'Head of Technical team at Črnfest',
+    'experience.skis.supervisoryBoard':
+      'Chair of the Supervisory Board, ŠKIS Union of Student Clubs',
+
     'experience.pgd.description':
       'Led the entire firefighting association, organizing events and training, managing documentation, and participating in firefighting and rescue missions. Responsible for approximately 200 members, including at least 20 operational firefighters, and led a 14-person board team.',
     'experience.skisova.description':
       'Experience with large-scale event management, including supervision of external staff and coordination of event programs. Strong time-management and large-project oversight skills. Helped organize Slovenia’s largest one-day student event, with approximately 25,000 attendees.',
     'experience.headTechnical.description':
-      'Leader of the technical team at the event. Management of external partners and team members. Responsible for security, main utilities and technical excellence.',
+      ' Head of the technical team at the event. Overseeing external partners, such as stage and sound equipment providers, event security, road closures, and, of course, other team members. Responsible for safety, basic services, and technical excellence.',
+
+    // Experience - ŠKIS
+    'experience.skis.supervisoryBoard.meta': '2019-2020',
+    'experience.skis.supervisoryBoard.intro':
+      'Served as chair of the four-member supervisory board of the Union of Student Clubs ŠKIS. Responsibilities included:',
+    'experience.skis.supervisoryBoard.task1':
+      'Leading and organizing the commission',
+    'experience.skis.supervisoryBoard.task2':
+      'Review and oversight of ŠKIS union operations',
+    'experience.skis.supervisoryBoard.task3':
+      'Verifying consistency of statutes, reports, and documents',
+    'experience.skis.supervisoryBoard.task4':
+      'Reporting to the assembly of clubs and their council several times per year',
+
+    // Education experience Titles
     'experience.fri': 'FRI - Computer and information science',
     'experience.university': 'University of Ljubljana',
     'experience.highSchool': 'High School of electronics and technics',
@@ -223,9 +242,7 @@ export const ui = {
     'experience.leadIOSDeveloper': 'Vodilni iOS razvijalec',
     'experience.softwareDeveloper': 'Programski razvijalec',
     'experience.juniorDeveloper': 'Junior razvijalec',
-    'experience.presidenPGD': 'Predsednik PGD Podzemelj',
-    'experience.eventOrganiser': 'Organizator dogodkov na Škisovi Tržnici',
-    'experience.headTechnical': 'Vodja tehnične ekipe na Črnfestu',
+
     'experience.education.title': 'Izobrazba',
     'experience.languages.title': 'Jeziki',
     'experience.techStack.title': 'Tehnologije, s katerimi delam',
@@ -274,14 +291,33 @@ export const ui = {
     'experience.limitlex.description4':
       'Razvijal kripto denarnico mobilno aplikacijo z Apache Cordova',
 
-    // Experience - Other roles
+    // Experience - Other leadership roles description
+    'experience.presidenPGD': 'Predsednik PGD Podzemelj',
+    'experience.eventOrganiser': 'Organizator dogodkov na Škisovi Tržnici',
+    'experience.headTechnical': 'Vodja tehnične ekipe na Črnfestu',
+    'experience.skis.supervisoryBoard':
+      'Predsednik nadzorne komisije Zveze ŠKIS',
+
     'experience.pgd.description':
       'Izkušnje z vodenjem celotnega gasilskega društva. Organizacija dogodkov in usposabljanj, skrb za dokumentacijo ter sodelovanje pri gašenju požarov in reševalnih akcijah. Odgovornost za približno 200 članov, od tega najmanj 20 operativnih gasilcev, ter vodenje 14-članske ekipe upravnega odbora.',
     'experience.skisova.description':
       'Pridobil sem izkušnje z upravljanjem velikih dogodkov, nadzorom zunanjih delavcev in koordinacijo programa dogodka ter z učinkovitim upravljanjem časa in nadzorom velikih projektov. Sodeloval sem pri organizaciji največjega enodnevnega študentskega dogodka v Sloveniji, ki je gostil približno 25.000 udeležencev.',
-
     'experience.headTechnical.description':
-      'Pridobil sem izkušnje z upravljanjem velikih dogodkov, nadzorom zunanjih delavcev in koordinacijo programa dogodka ter z učinkovitim upravljanjem časa in nadzorom velikih projektov. Sodeloval sem pri organizaciji največjega enodnevnega študentskega dogodka v Sloveniji, ki je gostil približno 25.000 udeležencev.',
+      'Vodja tehnične ekipe na prireditvi. Upravljanje zunanjih partnerjev, kot so ponudniki odrske tehnike in orvočenja, varnostna služba prireditve, zapore cest ter seveda drugi člani ekipe. Odgovoren za varnost, osnovne storitve in tehnično odličnost.',
+    // ŠKIS description
+    'experience.skis.supervisoryBoard.meta': '2019-2020',
+    'experience.skis.supervisoryBoard.intro':
+      'Bil predsednik 4 članske nadzorne komisije zveze študentskih klubov ŠKIS. Naloge so bile:',
+    'experience.skis.supervisoryBoard.task1':
+      'Vodenje in organizacija komisije',
+    'experience.skis.supervisoryBoard.task2':
+      'Pregled in nadzor poslovanja zveze ŠKIS',
+    'experience.skis.supervisoryBoard.task3':
+      'Preverjanje skladnosti aktov, poročil in dokumentov.',
+    'experience.skis.supervisoryBoard.task4':
+      'Poročanje zboru klubov in njihovim svetnikom večkrat letno.',
+
+    // Education experience Titles
     'experience.fri': 'FRI - Računalništvo in informatika',
     'experience.university': 'Univerza v Ljubljani',
     'experience.highSchool': 'Srednja šola za elektroniko in tehniko',
