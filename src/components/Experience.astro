@@ -1,10 +1,14 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { experienceGroups } from '../constants/experience';
 import Icon from './icons/Icon.astro';
 import TechStackMarquee from './TechStackMarquee.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const cardClass =
+  'p-6 rounded-xl border border-border-default bg-bg-primary dark:bg-bg-primary hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-colors';
 ---
 
 <!-- Work Experience -->
@@ -22,214 +26,69 @@ const t = useTranslations(lang);
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <article
-        class="group relative p-6 rounded-xl border border-border-default bg-bg-primary dark:bg-bg-primary hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-colors"
-      >
-        <div
-          class="absolute left-6 top-6 w-1 h-12 rounded-full bg-primary-500/60 group-hover:bg-primary-500 transition-colors"
-        >
-        </div>
-        <div class="pl-4">
-          <h3 class="font-display text-xl font-semibold text-text-primary mb-1">
-            {t('experience.bplanet.title')}
-          </h3>
-          <p class="text-sm text-text-tertiary mb-4">
-            {t('experience.bplanet.period')}
-          </p>
-          <ul
-            class="list-disc list-inside list-indent space-y-1.5 text-sm text-text-secondary"
-          >
-            <li>{t('experience.bplanet.description1')}</li>
-            <li>{t('experience.bplanet.description2')}</li>
-            <li>{t('experience.bplanet.description3')}</li>
-          </ul>
-        </div>
-      </article>
+    <div class="space-y-16">
+      {
+        experienceGroups.map((group) => (
+          <div id={group.anchorId} class="scroll-mt-24">
+            <h3 class="font-display text-xl sm:text-2xl font-semibold text-text-primary mb-2">
+              {t(group.titleKey)}
+            </h3>
+            {group.introKey ? (
+              <p class="text-sm text-text-secondary mb-6 max-w-3xl">
+                {t(group.introKey)}
+              </p>
+            ) : null}
 
-      <article
-        class="group relative p-6 rounded-xl border border-border-default bg-bg-primary dark:bg-bg-primary hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-colors"
-      >
-        <div
-          class="absolute left-6 top-6 w-1 h-12 rounded-full bg-primary-500/60 group-hover:bg-primary-500 transition-colors"
-        >
-        </div>
-        <div class="pl-4">
-          <h3 class="font-display text-xl font-semibold text-text-primary mb-1">
-            {t('experience.mobileDeveloper')}
-          </h3>
-          <p class="text-sm text-text-tertiary mb-4">
-            {t('experience.noctocode.period')}
-          </p>
-          <ul
-            class="list-disc list-inside list-indent space-y-1.5 text-sm text-text-secondary"
-          >
-            <li>{t('experience.noctocode.description1')}</li>
-            <li>{t('experience.noctocode.description2')}</li>
-            <li>{t('experience.noctocode.description3')}</li>
-            <li>{t('experience.noctocode.description4')}</li>
-          </ul>
-        </div>
-      </article>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {group.entries.map((entry) => (
+                <article class={cardClass}>
+                  <div class="space-y-4">
+                    <div>
+                      <h4 class="font-display text-lg font-semibold text-text-primary mb-1">
+                        {t(entry.roleKey)}
+                      </h4>
+                      {entry.companyKey ? (
+                        <p class="text-sm text-text-tertiary">
+                          {t(entry.companyKey)}
+                        </p>
+                      ) : null}
+                    </div>
 
-      <article
-        class="group relative p-6 rounded-xl border border-border-default bg-bg-primary dark:bg-bg-primary hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-colors"
-      >
-        <div
-          class="absolute left-6 top-6 w-1 h-12 rounded-full bg-primary-500/60 group-hover:bg-primary-500 transition-colors"
-        >
-        </div>
-        <div class="pl-4">
-          <h3 class="font-display text-xl font-semibold text-text-primary mb-1">
-            {t('experience.leadIOSDeveloper')}
-          </h3>
-          <p class="text-sm text-text-tertiary mb-4">
-            {t('experience.gdt.period')}
-          </p>
-          <ul
-            class="list-disc list-inside list-indent space-y-1.5 text-sm text-text-secondary"
-          >
-            <li>{t('experience.gdt.description1')}</li>
-            <li>{t('experience.gdt.description2')}</li>
-            <li>{t('experience.gdt.description3')}</li>
-            <li>{t('experience.gdt.description4')}</li>
-          </ul>
-        </div>
-      </article>
+                    {entry.bulletKeys?.length ? (
+                      <ul class="list-disc list-inside list-indent space-y-1.5 text-sm text-text-secondary">
+                        {entry.bulletKeys.map((key) => (
+                          <li>{t(key)}</li>
+                        ))}
+                      </ul>
+                    ) : null}
 
-      <article
-        class="group relative p-6 rounded-xl border border-border-default bg-bg-primary dark:bg-bg-primary hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-colors"
-      >
-        <div
-          class="absolute left-6 top-6 w-1 h-12 rounded-full bg-primary-500/60 group-hover:bg-primary-500 transition-colors"
-        >
-        </div>
-        <div class="pl-4">
-          <h3 class="font-display text-xl font-semibold text-text-primary mb-1">
-            {t('experience.softwareDeveloper')}
-          </h3>
-          <p class="text-sm text-text-tertiary mb-4">
-            {t('experience.dhimahi.period')}
-          </p>
-          <ul
-            class="list-disc list-inside list-indent space-y-1.5 text-sm text-text-secondary"
-          >
-            <li>{t('experience.dhimahi.description1')}</li>
-            <li>{t('experience.dhimahi.description2')}</li>
-            <li>{t('experience.dhimahi.description3')}</li>
-            <li>{t('experience.dhimahi.description4')}</li>
-          </ul>
-        </div>
-      </article>
+                    {entry.bodyKey ? (
+                      <p class="text-sm text-text-secondary">{t(entry.bodyKey)}</p>
+                    ) : null}
 
-      <article
-        class="group relative p-6 rounded-xl border border-border-default bg-bg-primary dark:bg-bg-primary hover:border-primary-500/30 dark:hover:border-primary-500/30 transition-colors"
-      >
-        <div
-          class="absolute left-6 top-6 w-1 h-12 rounded-full bg-primary-500/60 group-hover:bg-primary-500 transition-colors"
-        >
-        </div>
-        <div class="pl-4">
-          <h3 class="font-display text-xl font-semibold text-text-primary mb-1">
-            {t('experience.juniorDeveloper')}
-          </h3>
-          <p class="text-sm text-text-tertiary mb-4">
-            {t('experience.limitlex.period')}
-          </p>
-          <ul
-            class="list-disc list-inside list-indent space-y-1.5 text-sm text-text-secondary"
-          >
-            <li>{t('experience.limitlex.description1')}</li>
-            <li>{t('experience.limitlex.description2')}</li>
-            <li>{t('experience.limitlex.description3')}</li>
-            <li>{t('experience.limitlex.description4')}</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- Other Experience -->
-<section
-  id="experience-other"
-  class="py-16 sm:py-24 bg-bg-primary dark:bg-bg-primary"
->
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center gap-3 mb-12">
-      <div class="p-2 rounded-lg bg-primary-500/10 dark:bg-primary-500/20">
-        <Icon name="FlaskConical" size={24} class="text-primary-500" />
-      </div>
-      <h2 class="font-display text-2xl sm:text-3xl font-bold text-text-primary">
-        {t('experience.otherExperience')}
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <article
-        class="p-6 rounded-xl border border-border-default bg-bg-secondary dark:bg-bg-secondary hover:border-primary-500/30 transition-colors"
-      >
-        <h3 class="font-display text-lg font-semibold text-text-primary mb-2">
-          {t('experience.presidenPGD')}
-        </h3>
-        <p class="text-xs text-text-tertiary mb-3">
-          {t('experience.pgd.period')}
-        </p>
-        <p class="text-sm text-text-secondary">
-          {t('experience.pgd.description')}
-        </p>
-      </article>
-
-      <article
-        class="p-6 rounded-xl border border-border-default bg-bg-secondary dark:bg-bg-secondary hover:border-primary-500/30 transition-colors"
-      >
-        <h3 class="font-display text-lg font-semibold text-text-primary mb-2">
-          {t('experience.eventOrganiser')}
-        </h3>
-        <p class="text-xs text-text-tertiary mb-3">
-          {t('experience.eventOrganiser.period')}
-        </p>
-        <p class="text-sm text-text-secondary">
-          {t('experience.skisova.description')}
-        </p>
-      </article>
-
-      <article
-        class="p-6 rounded-xl border border-border-default bg-bg-secondary dark:bg-bg-secondary hover:border-primary-500/30 transition-colors"
-      >
-        <h3 class="font-display text-lg font-semibold text-text-primary mb-2">
-          {t('experience.headTechnical')}
-        </h3>
-        <p class="text-xs text-text-tertiary mb-3">
-          {t('experience.headTechnical.period')}
-        </p>
-        <p class="text-sm text-text-secondary">
-          {t('experience.headTechnical.description')}
-        </p>
-      </article>
-
-      <!-- ŠKIS -->
-      <article
-        class="p-6 rounded-xl border border-border-default bg-bg-secondary dark:bg-bg-secondary hover:border-primary-500/30 transition-colors"
-      >
-        <h3 class="font-display text-lg font-semibold text-text-primary mb-2">
-          {t('experience.skis.supervisoryBoard')}
-        </h3>
-        <p class="text-xs text-text-tertiary mb-3">
-          {t('experience.skis.supervisoryBoard.meta')}
-        </p>
-        <p class="text-sm text-text-secondary mb-2">
-          {t('experience.skis.supervisoryBoard.intro')}
-        </p>
-        <ul
-          class="list-disc list-inside space-y-1.5 text-sm text-text-secondary"
-        >
-          <li>{t('experience.skis.supervisoryBoard.task1')}</li>
-          <li>{t('experience.skis.supervisoryBoard.task2')}</li>
-          <li>{t('experience.skis.supervisoryBoard.task3')}</li>
-          <li>{t('experience.skis.supervisoryBoard.task4')}</li>
-        </ul>
-      </article>
+                    {entry.introKey || entry.taskKeys?.length ? (
+                      <div class="space-y-2">
+                        {entry.introKey ? (
+                          <p class="text-sm text-text-secondary">
+                            {t(entry.introKey)}
+                          </p>
+                        ) : null}
+                        {entry.taskKeys?.length ? (
+                          <ul class="list-disc list-inside space-y-1.5 text-sm text-text-secondary">
+                            {entry.taskKeys.map((key) => (
+                              <li>{t(key)}</li>
+                            ))}
+                          </ul>
+                        ) : null}
+                      </div>
+                    ) : null}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -237,7 +96,7 @@ const t = useTranslations(lang);
 <!-- Education & Skills -->
 <section
   id="education"
-  class="py-16 sm:py-24 bg-bg-secondary dark:bg-bg-secondary"
+  class="py-16 sm:py-24 bg-bg-primary dark:bg-bg-primary"
 >
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center gap-3 mb-12">
@@ -251,7 +110,7 @@ const t = useTranslations(lang);
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <article
-        class="p-6 rounded-xl border border-border-default bg-bg-primary dark:bg-bg-primary"
+        class="p-6 rounded-xl border border-border-default bg-bg-secondary dark:bg-bg-secondary"
       >
         <h3 class="font-display text-lg font-semibold text-text-primary mb-4">
           {t('experience.education.title')}
@@ -291,7 +150,7 @@ const t = useTranslations(lang);
       </article>
 
       <article
-        class="p-6 rounded-xl border border-border-default bg-bg-primary dark:bg-bg-primary"
+        class="p-6 rounded-xl border border-border-default bg-bg-secondary dark:bg-bg-secondary"
       >
         <h3 class="font-display text-lg font-semibold text-text-primary mb-4">
           {t('experience.languages.title')}
