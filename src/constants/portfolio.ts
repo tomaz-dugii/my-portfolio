@@ -52,7 +52,11 @@ export const portfolioProjects: PortfolioProject[] = [
     durationKey: 'portfolio.gdt.duration',
     logo: asset('gdt', 'WorkSafe-Guardian-logo.jpeg'),
     cardImage: asset('gdt', 'wsg-cover.png'),
-    images: [asset('gdt', 'wsg-cover.png'), asset('gdt', 'wsg-1.png'), asset('gdt', 'wsg.png')],
+    images: [
+      asset('gdt', 'wsg-cover.png'),
+      asset('gdt', 'wsg-1.png'),
+      asset('gdt', 'wsg.png'),
+    ],
     stack: [
       'Swift',
       'Objective-C',
@@ -145,25 +149,6 @@ export const portfolioProjects: PortfolioProject[] = [
     },
   },
   {
-    id: 'tomazinmasatrip.eu',
-    titleKey: 'portfolio.tomazinmasatrip.eu.title',
-    subtitleKey: 'portfolio.tomazinmasatrip.eu.subtitle',
-    descriptionKey: 'portfolio.tomazinmasatrip.eu.description',
-    durationKey: 'portfolio.tomazinmasatrip.eu.duration',
-    logo: asset('tomazinmasatrip', 'logo_tmsp.png'),
-    cardImage: asset('tomazinmasatrip', 'tsmp.png'),
-    images: [
-      asset('tomazinmasatrip', 'tsmp.png'),
-      asset('tomazinmasatrip', 'tsmp-1.png'),
-      asset('tomazinmasatrip', 'tsmp-2.png'),
-    ],
-    stack: ['Web', 'TypeScript', 'HTML', 'CSS', 'Astro', 'Tailwind CSS'],
-    link: {
-      href: 'https://tomazinmasatrip.eu',
-      labelKey: 'portfolio.visitWebsite',
-    },
-  },
-  {
     id: 'belokranjski-izdelki',
     titleKey: 'portfolio.belokranjski.title',
     subtitleKey: 'portfolio.belokranjski.subtitle',
@@ -187,6 +172,25 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     link: {
       href: 'https://belokranjski-izdelki.si',
+      labelKey: 'portfolio.visitWebsite',
+    },
+  },
+  {
+    id: 'tomazinmasatrip.eu',
+    titleKey: 'portfolio.tomazinmasatrip.eu.title',
+    subtitleKey: 'portfolio.tomazinmasatrip.eu.subtitle',
+    descriptionKey: 'portfolio.tomazinmasatrip.eu.description',
+    durationKey: 'portfolio.tomazinmasatrip.eu.duration',
+    logo: asset('tomazinmasatrip', 'logo_tmsp.png'),
+    cardImage: asset('tomazinmasatrip', 'tsmp.png'),
+    images: [
+      asset('tomazinmasatrip', 'tsmp.png'),
+      asset('tomazinmasatrip', 'tsmp-1.png'),
+      asset('tomazinmasatrip', 'tsmp-2.png'),
+    ],
+    stack: ['Web', 'TypeScript', 'HTML', 'CSS', 'Astro', 'Tailwind CSS'],
+    link: {
+      href: 'https://tomazinmasatrip.eu',
       labelKey: 'portfolio.visitWebsite',
     },
   },

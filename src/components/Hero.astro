@@ -30,7 +30,7 @@ const t = useTranslations(lang);
 
   <div class="max-w-6xl mx-auto relative w-full">
     <div
-      class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12 lg:gap-16 items-center"
+      class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 items-center"
     >
       <!-- Content (2/3) -->
       <div
@@ -79,16 +79,16 @@ const t = useTranslations(lang);
           >
           </div>
           <div
-            class="relative w-52 h-52 sm:w-56 sm:h-56 lg:w-72 lg:h-72 rounded-2xl overflow-hidden ring-1 ring-border-default"
+            class="relative w-[26rem] h-[26rem] sm:w-112 sm:h-112 lg:w-[36rem] lg:h-[36rem] rounded-2xl overflow-hidden ring-1 ring-border-default"
           >
             <Image
               src={profileImage}
               alt="Profile photo"
               class="h-full w-full object-cover object-center"
-              sizes="(min-width: 1024px) 288px, (min-width: 640px) 224px, 208px"
-              widths={[208, 288, 400, 576]}
-              width={400}
-              height={400}
+              sizes="(min-width: 1024px) 576px, (min-width: 640px) 448px, 416px"
+              widths={[416, 576, 900, 1200]}
+              width={500}
+              height={500}
               format="avif"
               layout="constrained"
               fetchpriority="high"
