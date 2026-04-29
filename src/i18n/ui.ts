@@ -54,6 +54,7 @@ export const ui = {
       'Native Android development with Jetpack Compose',
     'experience.bplanet.description3':
       'Developing IGNIS app — emergency call response and intervention coordination for firefighting units',
+    'experience.bplanet.period': 'BPLANET d.o.o. / 2026 -',
     'experience.mobileDeveloper': 'Mobile Developer',
     'experience.leadIOSDeveloper': 'Lead iOS Developer',
     'experience.softwareDeveloper': 'Software Developer',
@@ -275,6 +276,7 @@ export const ui = {
     'experience.bplanet.description2': ' Android razvoj z Jetpack Compose',
     'experience.bplanet.description3':
       'Razvoj aplikacije IGNIS — sprejem klicov v sili in vodenje intervencij za gasilske enote',
+    'experience.bplanet.period': 'BPLANET d.o.o. / 2026 -',
     'experience.mobileDeveloper': 'Mobilni razvijalec',
     'experience.leadIOSDeveloper': 'Vodilni iOS razvijalec',
     'experience.softwareDeveloper': 'Programski razvijalec',
